@@ -19,18 +19,20 @@ const PostsPage = () => {
           placeholder="write todo"
           value={todo}
           onChange={(e) => setTodo(e.target.value)}
+          data-cy="todo-input"
         />
         <Button
           disabled={todo.trim().length === 0}
           variant="contained"
           type="submit"
+          data-cy="todo-submit"
         >
           save
         </Button>
       </form>
       <ul>
-        {todos.map((t) => (
-          <ListItemButton key={t}>
+        {todos.map((t, i) => (
+          <ListItemButton key={t} data-cy={`todo-item-${i}`}>
             <ListItemText>{t}</ListItemText>
           </ListItemButton>
         ))}
